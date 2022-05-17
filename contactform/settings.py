@@ -124,6 +124,7 @@ EMAIL_HOST_USER = 'yaojiezengtian38@gmail.com'
 EMAIL_HOST_PASSWORD = 'ljvqxztdxkcuqwzp'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+USER_NAME = "増田遥介"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

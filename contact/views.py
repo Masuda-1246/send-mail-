@@ -20,17 +20,29 @@ def contact_form(request):
         if form.is_valid():
             """ 追記"""
             subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
             sender = form.cleaned_data['sender']
+            message = "送信元:{}\n内容:{}".format(sender,form.cleaned_data['message'])
             myself = form.cleaned_data['myself']
             recipients = [settings.EMAIL_HOST_USER]
 
-            if myself:
-                recipients.append(sender)
             try:
                 send_mail(subject, message, sender, recipients)
             except BadHeaderError:
                 return HttpResponse('無効なヘッダーが見つかりました。')
+              
+            if myself:
+                try:
+                  message = """
+お問合せいただきありがとうございます。
+数日以内にこちらからご連絡させていただきます。
+ご不明な点等ございましたら、気軽にご連絡ください。
+-------------------------------------------------
+{}
+{}
+                  """.format(settings.USER_NAME,settings.EMAIL_HOST_USER)
+                  send_mail(subject, message, sender, [sender])
+                except BadHeaderError:
+                  return HttpResponse('無効なヘッダーが見つかりました。')
             return redirect('contact:complete')
 
     else:
