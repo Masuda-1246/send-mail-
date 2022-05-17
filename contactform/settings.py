@@ -120,11 +120,11 @@ STATIC_URL = 'static/'
 
 # メールサーバー用
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'yaojiezengtian38@gmail.com'
-EMAIL_HOST_PASSWORD = 'ljvqxztdxkcuqwzp'
+EMAIL_HOST_USER = 'hogehoge@gmail.com'
+EMAIL_HOST_PASSWORD = 'hogehoge'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-USER_NAME = "増田遥介"
+USER_NAME = "自分の名前"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
